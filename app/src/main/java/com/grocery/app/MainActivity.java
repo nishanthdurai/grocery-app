@@ -1,10 +1,13 @@
 package com.grocery.app;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import com.grocery.app.admin.AdminLoginActivity;
+import com.grocery.app.customer.CustomerLoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnAdmin = findViewById(R.id.btn_admin);
-        btnCustomer = findViewById(R.id.btn_customer);
+        btnAdmin = findViewById(R.id.btnAdmin);
+        btnCustomer = findViewById(R.id.btnCustomer);
 
-//        btn_tutor.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,
-//                TutorSignIn.class)));
-//
-//        btn_parent.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,
-//                ParentSignIn.class)));
+        btnAdmin.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,
+                AdminLoginActivity.class)));
+
+        btnCustomer.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,
+                CustomerLoginActivity.class)));
 
     }
 }

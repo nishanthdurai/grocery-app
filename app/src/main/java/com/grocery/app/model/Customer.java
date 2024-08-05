@@ -25,11 +25,4 @@ public class Customer {
         this.password = password;
         this.id = id;
     }
-
-    public String toString() {
-        return "Tutor{" +
-                "name='" + password + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }

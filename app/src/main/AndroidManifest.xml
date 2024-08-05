@@ -21,7 +21,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GroceryApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".admin.AdminSignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AdminLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerSignUpActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
