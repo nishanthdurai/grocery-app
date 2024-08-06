@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.grocery.app.R;
+import com.grocery.app.admin.fragment.AddProductFragment;
 import com.grocery.app.admin.fragment.MenuFragment;
 import com.grocery.app.admin.fragment.ViewOrderFragment;
 
@@ -23,8 +24,6 @@ public class AdminDashboard extends AppCompatActivity implements MenuFragment.On
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_admin_dashboard);
-
-        setTitle("Admin dashboard");
 
         // Load the default fragment
         if (savedInstanceState == null) {
@@ -39,7 +38,18 @@ public class AdminDashboard extends AppCompatActivity implements MenuFragment.On
         fragmentTransaction.replace(R.id.fragment_container, fragment);
 
         fragmentTransaction.commitNow();
-        handleBackArrow();
+
+        if (fragmentManager.findFragmentById(R.id.fragment_container) instanceof MenuFragment) {
+            setTitle("Admin Dashboard");
+        } else if (fragmentManager.findFragmentById(R.id.fragment_container) instanceof AddProductFragment) {
+            setTitle("Add new product");
+        } else if (fragmentManager.findFragmentById(R.id.fragment_container) instanceof ViewOrderFragment) {
+            setTitle("Orders");
+        }
+
+        boolean show = fragmentManager
+                .findFragmentById(R.id.fragment_container) instanceof MenuFragment;
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(!show);
     }
 
     @Override
@@ -50,13 +60,6 @@ public class AdminDashboard extends AppCompatActivity implements MenuFragment.On
         } else {
             replaceFragment(new MenuFragment());
         }
-    }
-
-    private void handleBackArrow() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        boolean show = fragmentManager
-                .findFragmentById(R.id.fragment_container) instanceof MenuFragment;
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(!show);
     }
 
     @Override

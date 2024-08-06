@@ -7,6 +7,25 @@
     android:padding="16dp"
     tools:context=".admin.AdminDashboard">
 
+    <!-- Image Selection -->
+    <ImageView
+        android:id="@+id/imageViewProductImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/add_image"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:contentDescription="Product Image"/>
+
+    <Button
+        android:id="@+id/buttonSelectImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Product Image"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
     <EditText
         android:id="@+id/editTextProductName"
         android:layout_width="match_parent"
