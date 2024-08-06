@@ -14,9 +14,6 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -89,7 +86,7 @@ public class AdminSignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void verifyEmailExistenceAndCreateTutorAccount(String email, String password) {
+    private void verifyEmailExistenceAndCreateAdminAccount(String email, String password) {
         progressDialog.setMessage("Creating your Account....");
         progressDialog.setTitle("Creating");
         progressDialog.setCanceledOnTouchOutside(false);
@@ -161,7 +158,7 @@ public class AdminSignUpActivity extends AppCompatActivity {
             et_confirmPassword.setError("Password doesn't matches");
             return;
         } else {
-            verifyEmailExistenceAndCreateTutorAccount(email, password);
+            verifyEmailExistenceAndCreateAdminAccount(email, password);
         }
     }
 

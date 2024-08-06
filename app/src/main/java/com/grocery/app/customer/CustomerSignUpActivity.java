@@ -86,7 +86,7 @@ public class CustomerSignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void verifyEmailExistenceAndCreateTutorAccount(String email, String password) {
+    private void verifyEmailExistenceAndCreateAdminAccount(String email, String password) {
         progressDialog.setMessage("Creating your Account....");
         progressDialog.setTitle("Creating");
         progressDialog.setCanceledOnTouchOutside(false);
@@ -158,7 +158,7 @@ public class CustomerSignUpActivity extends AppCompatActivity {
             et_confirmPassword.setError("Password doesn't matches");
             return;
         } else {
-            verifyEmailExistenceAndCreateTutorAccount(email, password);
+            verifyEmailExistenceAndCreateAdminAccount(email, password);
         }
     }
 

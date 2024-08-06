@@ -66,7 +66,6 @@ public class AdminLoginActivity extends AppCompatActivity {
         tv_forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(TutorSignIn.this, TutorResetPasswordActivity.class));
             }
         });
 
@@ -118,8 +117,8 @@ public class AdminLoginActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     progressDialog.dismiss();
                     if (dataSnapshot.exists()) {
-                        for (DataSnapshot tutorSnapshot : dataSnapshot.getChildren()) {
-                            Admin admin = tutorSnapshot.getValue(Admin.class);
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            Admin admin = snapshot.getValue(Admin.class);
                             Log.d("Grocery logs", "onDataChange: " + admin.getPassword()+password );
                             if (admin != null && password.equals(admin.getPassword())) {
                                 // check if password is valid
@@ -147,13 +146,13 @@ public class AdminLoginActivity extends AppCompatActivity {
         }
     }
 
-    private void sendUserToMainActivity(String tutorId, String email, String password) {
-//        Intent intent = new Intent(TutorSignIn.this, TutorRealDashboard.class);
-//        intent.putExtra("email", email);
-//        intent.putExtra("tutorId", tutorId);
-//        intent.putExtra("password", password);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(intent);
+    private void sendUserToMainActivity(String id, String email, String password) {
+        Intent intent = new Intent(AdminLoginActivity.this, AdminDashboard.class);
+        intent.putExtra("email", email);
+        intent.putExtra("adminId", id);
+        intent.putExtra("password", password);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override

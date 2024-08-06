@@ -120,8 +120,8 @@ public class CustomerLoginActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     progressDialog.dismiss();
                     if (dataSnapshot.exists()) {
-                        for (DataSnapshot tutorSnapshot : dataSnapshot.getChildren()) {
-                            Customer student = tutorSnapshot.getValue(Customer.class);
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            Customer student = snapshot.getValue(Customer.class);
                             if (student != null && password.equals(student.getPassword())) {
                                 // check if password is valid
                                 Toast.makeText(CustomerLoginActivity.this, "SignIn success.", Toast.LENGTH_SHORT).show();
@@ -146,14 +146,12 @@ public class CustomerLoginActivity extends AppCompatActivity {
     }
 
     // if password change required send student to password update screen
-    private void sendUserToMainActivity(Customer student) {
+    private void sendUserToMainActivity(Customer customer) {
 //        Class<? extends AppCompatActivity> targetActivity = student.getRequirePasswordChange() ?
 //                StudentPasswordChangeActivity.class : StudentRealDashboard.class;
 //
 //        Intent intent = new Intent(StudentSignIn.this, targetActivity);
-//        intent.putExtra("studentName", student.getName());
-//        intent.putExtra("studentId", student.getId());
-//        intent.putExtra("tutorId", student.getTutorId());
+//        intent.putExtra("adminId", student.getTutorId());
 //        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 //        startActivity(intent);
     }

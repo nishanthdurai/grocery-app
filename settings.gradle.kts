@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TutorConnect"
+rootProject.name = "Grocery App"
 include(":app")
  
